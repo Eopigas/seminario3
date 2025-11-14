@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard — CoorinInvest</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="bg-light">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-left"><div class="logo">CI</div><div><strong>CoorinInvest</strong></div></div>
+      <div class="top-actions">
+        <button class="btn ghost" id="btn-open-profile">Perfil</button>
+        <button class="btn" id="btn-logout">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container main-grid">
+    <aside class="sidebar card">
+      <nav>
+        <button class="nav-btn active" data-route="overview">Visão Geral</button>
+        <button class="nav-btn" data-route="chat">Chat</button>
+        <button class="nav-btn" data-route="invest">Investimentos</button>
+        <button class="nav-btn" data-route="data">Dados (tabelas)</button>
+      </nav>
+      <div class="sidebar-footer muted small">Demonstração — Dados simulados</div>
+    </aside>
+
+    <main class="content">
+      <section id="view-area" class="card"></section>
+    </main>
+  </div>
+
+  <template id="tpl-overview">
+    <div class="grid-3">
+      <div class="stat card small">
+        <div class="stat-title">Clientes</div>
+        <div class="stat-value" id="stat-clients">0</div>
+      </div>
+      <div class="stat card small">
+        <div class="stat-title">Consultores</div>
+        <div class="stat-value" id="stat-consultants">0</div>
+      </div>
+      <div class="stat card small">
+        <div class="stat-title">Investimentos</div>
+        <div class="stat-value" id="stat-investments">0</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Distribuição por Tipo (Carteira)</h3>
+      <canvas id="pieTypes" height="200"></canvas>
+    </div>
+
+    <div class="card">
+      <h3>Resumo rápido</h3>
+      <p id="summaryText"></p>
+    </div>
+  </template>
+
+  <template id="tpl-chat">
+    <div class="card chat-card">
+      <h3>Chat com Consultor</h3>
+      <div id="chat-history" class="chat-history"></div>
+      <div class="chat-actions">
+        <div class="quick-btns" id="quick-btns"></div>
+        <input id="chat-input" placeholder="Digite sua pergunta">
+        <button class="btn" id="chat-send">Enviar</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-invest">
+    <div class="card">
+      <h3>Investimentos</h3>
+      <div class="form-row inline">
+        <input id="inv-name" placeholder="Nome do investimento">
+        <select id="inv-type"></select>
+        <input id="inv-value" placeholder="Valor (R$)">
+        <button class="btn" id="inv-add">Adicionar</button>
+      </div>
+      <div class="card">
+        <h4>Meus Investimentos</h4>
+        <table class="table" id="invest-table"><thead><tr><th>Nome</th><th>Tipo</th><th>Valor</th><th>Ações</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="card">
+        <h4>Distribuição (Pizza)</h4>
+        <canvas id="pieInvest" height="200"></canvas>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-data">
+    <div class="card">
+      <h3>Dados simulados (visualização)</h3>
+      <p class="small muted">Abaixo há algumas tabelas simuladas baseadas no schema fornecido.</p>
+      <details open>
+        <summary>Clientes</summary>
+        <div id="table-clients"></div>
+      </details>
+      <details>
+        <summary>Funcionários</summary>
+        <div id="table-employees"></div>
+      </details>
+      <details>
+        <summary>Investimentos</summary>
+        <div id="table-invests"></div>
+      </details>
+    </div>
+  </template>
+
+</body>
+</html>
