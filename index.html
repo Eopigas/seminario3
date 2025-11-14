@@ -4,25 +4,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CoorinInvest — Login</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+
+  <!-- Caminhos ABSOLUTOS para garantir que o Netlify carregue -->
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
 </head>
 <body class="bg-light">
   <main class="page page-center">
     <div class="card auth-card">
-      <div class="brand"><div class="logo">CI</div><div><h1>CoorinInvest</h1><p class="muted">Painel de demonstração</p></div></div>
+      <div class="brand">
+        <div class="logo">CI</div>
+        <div>
+          <h1>CoorinInvest</h1>
+          <p class="muted">Painel de demonstração</p>
+        </div>
+      </div>
+
       <h2>Entrar</h2>
+
       <div class="form-row">
         <label>E-mail</label>
-        <input id="login-email" placeholder="aluno@example.com" value="aluno@example.com">
+        <input id="login-email" value="aluno@example.com">
       </div>
+
       <div class="form-row">
         <label>Senha</label>
-        <input id="login-pass" type="password" placeholder="123" value="123">
+        <input id="login-pass" type="password" value="123">
       </div>
+
       <div class="form-row">
         <button class="btn primary" id="btn-login">Entrar</button>
       </div>
+
       <p class="muted small">Use <b>aluno@example.com</b> / <b>123</b> para demo.</p>
     </div>
   </main>
